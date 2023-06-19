@@ -2,7 +2,6 @@
 const {nanoid} = require('nanoid');
 const books = require('./books');
 
-// proses menambahkan buku
 const addBookHandler = (request, h) => {
   const {
     name,
@@ -76,7 +75,6 @@ const addBookHandler = (request, h) => {
   return response;
 };
 
-// menampilkan seluruh buku
 const getAllBooksHandler = (request, h) => {
   const {name, reading, finished} = request.query;
 
@@ -147,7 +145,6 @@ const getAllBooksHandler = (request, h) => {
   }
 };
 
-// proses pencarian buku berdasarkan id
 const getBookByIdHandler = (request, h) => {
   const {id} = request.params;
   const book = books.filter((b) => b.id === id)[0];
@@ -227,7 +224,6 @@ const editBookByIdHandler = (request, h) => {
   }
 };
 
-// proses menghapus buku
 const deleteBookByIdHandler = (request, h) => {
   const {id} = request.params;
   const index = books.findIndex((book) => book.id === id);
